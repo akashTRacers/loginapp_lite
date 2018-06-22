@@ -1,10 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const initUsers = require("./users");
+const openHome= require("./openHome.js");
+const initRoutes = (app) => {
+    console.log("inside index.js");
+    app.use('/', openHome());
+    //app.use('/users', initUsers()); 
 
-//Get Home Page
-router.get('/',function(req,res){
-    console.log("inside index.js routes")
-    res.render('index');
-
-})
-module.exports=router;  
+}
+module.exports = initRoutes;
